@@ -70,12 +70,6 @@
                                     </div>
 
                                     <div class="mb-3 px-4">
-                                        <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control" id="password_confirmation"
-                                            name="password_confirmation" placeholder="Re-enter password">
-                                    </div>
-
-                                    <div class="mb-3 px-4">
                                         <label for="status" class="form-label">Status</label>
                                         <select class="form-select" id="status" name="status">
                                             <option value="active">Active</option>

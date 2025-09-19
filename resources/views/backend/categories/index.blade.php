@@ -17,7 +17,7 @@
                 {{-- Main Part  --}}
                 <div class="row g-3 mb-4 align-items-center justify-content-between">
                     <div class="col-auto">
-                        <h1 class="app-page-title mb-0">Product Category</h1>
+                        <h1 class="app-page-title mb-0">Product Categories</h1>
                     </div>
                     <div class="col-auto">
                         <div class="page-utilities">
@@ -36,12 +36,20 @@
 
 
                                 <div class="col-auto">
-                                    <a class="btn app-btn-primary" href="{{ route('users.create') }}"><svg
+                                    <a class="btn app-btn-primary" href="{{ route('categories.create') }}"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
                                                 d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                                         </svg> Create</a>
+
+                                         <a class="btn app-btn-primary" href="{{ route('categories.trash') }}"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor" class="bi bi-trash3"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                                                </svg> Trash</a>
                                 </div>
                             </div>
                             <!--//row-->
@@ -62,32 +70,32 @@
                                     <table class="table app-table-hover text-left m-3">
                                         <thead>
                                             <tr>
-                                                <th class="cell">ID</th>
+                                               <th class="cell">ID</th>
                                                 <th class="cell">Name</th>
-                                                <th class="cell">Category_ID</th>
                                                 <th class="cell">Status</th>
                                                 <th class="cell">Remarks</th>
-                                                <th class="cell">Created_by</th>
+                                                <th class="cell">Action</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $user)
+                                            @foreach ($categories as $category)
                                                 <tr>
-                                                    <td class="cell">{{ $user->id }}</td>
-                                                    <td class="cell">{{ $user->name }}</td>
-                                                    <td class="cell">{{ $user->email }}</td>
-                                                    <td class="cell">{{ $user->phone }}</td>
-
-                                                    <td class="cell">
-                                                        @if ($user->status == 'active')
+                                                <td class="cell">{{$category->id}}</td>
+                                                <td class="cell">{{$category->name}}</td>
+                                                <td class="cell">
+                                                        @if ($category->status == 'active')
                                                             <span class="badge bg-warning">Active</span>
                                                         @else
                                                             <span class="badge bg-danger">Inactive</span>
                                                         @endif
                                                     </td>
-                                                    <td class="cell text-nowrap">
+                                                <td class="cell">{{$category->remarks}}</td>
+
+
+                                                    <td class="cell">
                                                         <a class="btn app-btn-primary"
-                                                            href="{{ route('users.show', $user->id) }}"><svg
+                                                            href="{{ route('categories.show', $category->id) }}" title="View"><svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-eye"
                                                                 viewBox="0 0 16 16">
@@ -97,7 +105,7 @@
                                                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                                             </svg></a>
                                                         <a class="btn app-btn-primary2"
-                                                            href="{{ route('users.edit',$user->id)}}"><svg
+                                                            href="{{ route('categories.edit',$category->id)}}" title="Edit"><svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor"
                                                                 class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -106,12 +114,12 @@
                                                                 <path fill-rule="evenodd"
                                                                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
                                                             </svg></a>
-                                                        <form action="{{ route('users.destroy',$user->id) }}"
+                                                        <form action="{{ route('categories.destroy',$category->id) }}"
                                                             method="POST" style="display:inline-block;"
                                                             onsubmit="return confirm('Are you sure?');">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn app-btn-danger"><svg
+                                                            <button type="submit" class="btn app-btn-danger"title="Trash"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="16"
                                                                     height="16" fill="currentColor" class="bi bi-trash3"
                                                                     viewBox="0 0 16 16">

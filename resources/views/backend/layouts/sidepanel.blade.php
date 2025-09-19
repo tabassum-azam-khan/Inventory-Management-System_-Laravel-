@@ -39,7 +39,7 @@
                         </li>
                         <!-- Nav Item 2 -->
                         <li class="nav-item has-submenu">
-                            <a class="nav-link submenu-toggle" data-bs-toggle="collapse" data-bs-target="#submenu-users" aria-expanded="false" aria-controls="submenu-1">
+                            <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-users" aria-expanded="false" aria-controls="submenu-1">
                                 <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -147,20 +147,20 @@
                                         <div id="submenu-products" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
                                             <ul class="submenu-list list-unstyled">
                                                 <li class="submenu-item">
-                                                    <a class="submenu-link" href="{{url('')}}">All Products </a>
+                                                    <a class="submenu-link" href={{route('products.index')}}>All Products </a>
                                                 </li>
                                                 <li class="submenu-item">
-                                                    <a class="submenu-link" href="#">Category</a>
+                                                    <a class="submenu-link" href={{route('categories.index')}}>Category</a>
                                                 </li>
                                                 <li class="submenu-item">
-                                                    <a class="submenu-link" href="#">Sub-Category</a>
+                                                    <a class="submenu-link" href={{route('subcategories.index')}}>Sub-Category</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
                                     <!-- Nav item 5 -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href={{route('units.index')}}>
                                             <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +180,7 @@
                                     </li>
                                     <!-- Nav Item 6 -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href={{route('warehouses.index')}}>
                                             <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +200,8 @@
                                     </li>
                                     <!-- Nav Item 7 -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="help.html">
+                                        <a class="nav-link" href={{route
+                                        ('companies.index')}}>
                                             <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +225,7 @@
 
                                     <!-- Nav Item 8 -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href={{route('customers.index')}}>
                                             <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +246,7 @@
 
                                     <!-- Nav Item 9 -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href={{route('suppliers.index')}}>
                                             <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -266,7 +267,7 @@
 
                                     <!-- Nav Item 10 -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href={{route('payment.index')}}>
                                             <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

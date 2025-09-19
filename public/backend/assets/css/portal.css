@@ -13003,7 +13003,7 @@ button.close:focus {
 
 .app-nav .nav-link.submenu-toggle.active {
     background: 0 0;
-    border-color: rgba(0, 0, 0, 0)
+    border-color: rgba(0, 0, 0, 0);
 }
 
 .app-nav .nav-link:hover {
@@ -13168,7 +13168,7 @@ button.close:focus {
 
 .app-page-title {
     font-size: 1.5rem;
-    font-weight: bolder;
+    font-weight: 500;
     margin-bottom: 1.5rem
 }
 

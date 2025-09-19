@@ -43,7 +43,7 @@
 
                                             @if ($users->isEmpty())
                                                 <tr>
-                                                    <td colspan="6" class="text-center">No user found.</td>
+                                                    <td colspan="6" class="text-center text-secondary">No user found.</td>
                                                 </tr>
                                             @else
 

@@ -33,7 +33,7 @@ class UsersController extends Controller
         $user->status = $request->status;
         $user->remarks = $request->remarks;
         $user->save();
-        session()->flash('message', 'Created Successfully');
+        session()->flash('message', 'User Created Successfully');
         return redirect()-> route('users.index');
     }
 
@@ -41,7 +41,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.view', compact('user'));
+        return view('backend.users.view', compact('user'));
     }
 
 
@@ -91,14 +91,14 @@ class UsersController extends Controller
         return view('backend.users.trash',compact('users'));
     }
 
+    //TEMP DELETE
     public function destroy($id)
     {
-
         $user = User::find($id);
 
         if ($user) {
             $user->delete();
-            session()->flash('message','User Moved to Trash');
+            session()->flash('message','Moved to Trash');
         }
         return redirect()->route('users.index',compact('user'));
     }

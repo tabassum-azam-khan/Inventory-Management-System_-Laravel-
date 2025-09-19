@@ -30,11 +30,12 @@ class ProductCategoryController extends Controller
         $category->name = $request->name;
         $category->status = $request->status;
         $category->remarks = $request->remarks;
-        $category->created_by = auth()->user()->name;
-        $category->updated_by = auth()->user()->name;
+        $category->created_by = $request->created_by;
+        $category->updated_by = $request->updated_by;
+
         $category->save();
 
-        session()->flash('message', 'Category Created Successfully');
+        session()->flash('message', 'Created Successfully');
         return redirect()->route('categories.index');
     }
 
@@ -58,7 +59,7 @@ class ProductCategoryController extends Controller
         //validating input
         $request-> validate([
             'name'=>'required|string',
-            'status'=>'required|in;active,inactive',
+            'status'=>'required|in:active,inactive',
             'remarks'=>'nullable|string|max:300',
             'created_by'=>'nullable|integer',
             'updated_by'=>'nullable|integer',
@@ -78,12 +79,28 @@ class ProductCategoryController extends Controller
     }
 
     //SOFT DELETES
-
-    public function destroy($id){
-
+    public function trash(){
+        $categories = Product_Category::onlyTrashed()->get();
+        return view('backend.categories.trash',compact('categories'));
     }
 
+    public function destroy($id){
+        $category = Product_Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('categories.index')->with('message','Moved to Trash');
+    }
 
+    public function restore($id){
+        $category = Product_Category::onlyTrashed()->findOrFail($id);
+        $category ->restore();
+        return redirect()->route('categories.index')->with('message','Restored Successfully');
+    }
+
+    public function forceDelete($id){
+        $category = Product_Category::onlyTrashed()->findOrFail($id);
+        $category->forceDelete();
+        return redirect()->route('categories.trash')->with('message','Permanently Deleted');
+    }
 
     }
 

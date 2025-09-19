@@ -7,7 +7,7 @@
                 <!-- Page Header -->
                 <div class="row g-3 mb-4 align-items-center justify-content-between">
                     <div class="col-auto">
-                        <h1 class="app-page-title mb-0">Create New User</h1>
+                        <h1 class="app-page-title mb-0">Create New Category</h1>
                     </div>
                     <div class="col-auto">
                         <div class="page-utilities">
@@ -40,40 +40,14 @@
                         <div class="app-card shadow-sm mb-5">
                             <div class="app-card-body">
 
-                                <form action="{{ route('users.store') }}" method="POST" class="p-4">
+                                <form action="{{ route('categories.store') }}" method="POST" class="p-4">
                                     @csrf
                                     <!-- Form fields -->
                                     <div class="mb-3 px-4">
                                         <label for="name" class="form-label" required>Name</label>
                                         <input type="text" class="form-control"
-                                            id="name" name="name" placeholder="Enter name">
+                                            id="name" name="name" placeholder="Enter Category">
                                                                            </div>
-
-                                    <div class="mb-3 px-4">
-                                        <label for="email" class="form-label" required>Email</label>
-                                        <input type="email" class=" form-control"
-                                            id="email" name="email" placeholder="Enter email">
-
-                                    </div>
-
-                                     <div class="mb-3 px-4">
-                                        <label for="phone" class="form-label" required>Phone</label>
-                                        <input type="text" class="form-control"
-                                            id="phone" name="phone" placeholder="Enter phone">
-                                    </div>
-
-
-                                    <div class="mb-3 px-4">
-                                        <label for="password" class="form-label" required>Password</label>
-                                        <input type="password" class=" form-control"
-                                            id="password" name="password" placeholder="Enter password">
-                                    </div>
-
-                                    <div class="mb-3 px-4">
-                                        <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control" id="password_confirmation"
-                                            name="password_confirmation" placeholder="Re-enter password">
-                                    </div>
 
                                     <div class="mb-3 px-4">
                                         <label for="status" class="form-label">Status</label>
@@ -91,7 +65,7 @@
                                     </div>
 
                                     <div class="mb-3 px-4">
-                                        <button type="submit" class="btn app-btn-primary">Create User</button>
+                                        <button type="submit" class="btn app-btn-primary">Create Category</button>
                                     </div>
                                 </form>
 
